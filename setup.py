@@ -10,7 +10,7 @@ def read(*paths):
 
 setup(
     name='ConcurrentPandas',
-    version='0.1.1',
+    version='0.1.2',
     description='Download data using pandas with multi-threading and multi-processing.',
     long_description=(read('README.md') + '\n\n' +
                       read('AUTHORS.rst')) + '\n\n',
@@ -47,10 +47,13 @@ setup(
     # Project uses reStructuredText, so ensure that the docutils get
     # installed or upgraded on the target machine
     install_requires = [
-        'Quandl',
+        'Quandl==1.5.1',
         'pandas>=0.14.0'
     ],
-
+    # because "official" Quandl 1.5.0 doesn't handle dependency on ipython, pandas, and numpy correctly 
+    dependency_links=[
+      'git+ssh://git@github.com/hobson/quandl.git#egg=Quandl-1.5.1',
+    ],
     package_data = {
         # If any package contains *.txt or *.rst files, include them:
         '': ['*.txt', '*.rst', 'LICENSE', 'README.md'],
