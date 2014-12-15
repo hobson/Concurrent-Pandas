@@ -47,12 +47,11 @@ setup(
     # Project uses reStructuredText, so ensure that the docutils get
     # installed or upgraded on the target machine
     install_requires = [
-        'Quandl==1.5.1',
         'pandas>=0.14.0'
     ],
     # because "official" Quandl 1.5.0 doesn't handle dependency on ipython, pandas, and numpy correctly 
     dependency_links=[
-      'git+ssh://git@github.com/hobson/quandl.git#egg=Quandl-1.5.1',
+      'git+ssh://git@github.com/hobson/quandl.git@master#egg=Quandl',
     ],
     package_data = {
         # If any package contains *.txt or *.rst files, include them:
